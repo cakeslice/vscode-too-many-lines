@@ -20,4 +20,8 @@ With this extension you can make sure your code is maintainable!
 
 ## Disable for a single file
 
-To disable the warnings in a single file, add the following comment in the top: `// disable-too-many-lines`
+To disable the warnings in a single file, add `disable-too-many-lines` in a comment like:
+
+- `// disable-too-many-lines`
+- `# disable-too-many-lines`
+- `/* disable-too-many-lines */`

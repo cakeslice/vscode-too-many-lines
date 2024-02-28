@@ -65,17 +65,24 @@ export const addLineCounter = (editor?: vscode.TextEditor) => {
    let lineCount = 0;
 
    for (let i = 0; i < doc.lineCount; i++) {
-      if (doc.lineAt(i).text.trim().startsWith("// disable-too-many-lines")) {
+      const trimmedLine = doc.lineAt(i).text.trim();
+
+      const disabledFlag = "disable-too-many-lines";
+      if (
+         trimmedLine.startsWith(`// ${disabledFlag}`) ||
+         trimmedLine.startsWith(`/* ${disabledFlag}`) ||
+         trimmedLine.startsWith(`# ${disabledFlag}`)
+      ) {
          removeDecoration(doc);
          return;
       }
 
-      const isEmpty = doc.lineAt(i).text.trim() === "";
+      const isEmpty = trimmedLine === "";
       const isComment =
-         doc.lineAt(i).text.trim().startsWith("//") ||
-         doc.lineAt(i).text.trim().startsWith("/*") ||
-         doc.lineAt(i).text.trim().startsWith("*") ||
-         doc.lineAt(i).text.trim().startsWith("*/");
+         trimmedLine.startsWith("//") ||
+         trimmedLine.startsWith("/*") ||
+         trimmedLine.startsWith("*") ||
+         trimmedLine.startsWith("*/");
 
       if (!isEmpty && !isComment) {
          lineCount++;
