@@ -1,4 +1,5 @@
-# Too Many Lines VS Code extension
+# Too Many Lines extension
+
 VS Code extension to keep your file line counts low
 
 ## How it works
