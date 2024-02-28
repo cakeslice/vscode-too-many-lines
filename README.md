@@ -17,3 +17,7 @@ There's two configurable levels:
 ![image](https://github.com/cakeslice/vscode-too-many-lines/assets/7516142/337872e2-6590-4a37-af10-721b9bd0dcd8)
 
 With this extension you can make sure your code is maintainable!
+
+## Disable for a single file
+
+To disable the warnings in a single file, add the following comment in the top: `// disable-too-many-lines`
